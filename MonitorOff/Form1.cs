@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace MonitorOff
 {
@@ -25,6 +26,10 @@ namespace MonitorOff
         }
         private void button1_Click(object sender, System.EventArgs e)
         {
+            for (int i = 5; i > 0; i--)
+            {
+                Thread.Sleep(1000);
+            }
 
             SendMessage(this.Handle.ToInt32(), WM_SYSCOMMAND, SC_MONITORPOWER, 2);
         }
